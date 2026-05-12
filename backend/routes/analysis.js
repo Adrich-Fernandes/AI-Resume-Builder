@@ -3,7 +3,7 @@ const router = express.Router();
 const analysisController = require('../controllers/analysisController');
 const { protect } = require('../middleware/auth');
 
-router.use(protect);
+// router.use(protect);
 
 router.post('/run', analysisController.run);
 router.get('/history', analysisController.history);

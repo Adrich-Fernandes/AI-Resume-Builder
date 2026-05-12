@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { protect } = require('../middleware/auth');
+const resumeController = require('../controllers/resumeController');
 
-// TODO: Implement resume controller and add routes
 // router.use(protect);
-// router.post('/upload', ...);
+
+router.post('/upload', resumeController.uploadResume);
+router.get('/history', resumeController.getHistory);
 
 module.exports = router;

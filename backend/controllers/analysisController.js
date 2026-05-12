@@ -1,6 +1,6 @@
 const Resume = require('../models/resume');
 const Analysis = require('../models/analysis');
-const { analyzeResume } = require('../services/anthropic');
+const { analyzeResume } = require('../services/gemini');
 
 // POST /api/analysis/run
 exports.run = async (req, res, next) => {
@@ -19,9 +19,10 @@ exports.run = async (req, res, next) => {
 
     const result = await analyzeResume(resume.raw_text, job_description);
 
+    const userId = req.user ? req.user.id : 1;
     const analysis = await Analysis.create({
       resume_id,
-      user_id: req.user.id,
+      user_id: userId,
       job_description: job_description.trim(),
       ...result,
     });

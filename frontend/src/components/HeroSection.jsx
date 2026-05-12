@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -28,11 +29,11 @@ export default function HeroSection() {
 
         {/* CTA Button */}
         <div className="flex flex-col items-center gap-6">
-          <button className="group bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg shadow-[0_8px_30px_rgb(250,204,21,0.3)] transition-all flex items-center gap-3 active:scale-95">
+          <Link to="/builder" className="group bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg shadow-[0_8px_30px_rgb(250,204,21,0.3)] transition-all flex items-center gap-3 active:scale-95">
             <Sparkles className="w-5 h-5" />
             Analyze My Resume
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
 
           {/* Features */}
           <div className="flex flex-wrap justify-center gap-6 mt-4">
