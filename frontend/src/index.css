@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
