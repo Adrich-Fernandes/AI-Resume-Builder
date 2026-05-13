@@ -6,7 +6,7 @@ export default function Builder() {
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [resumeId, setResumeId] = useState(null);
+  const [rawText, setRawText] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
   const [error, setError] = useState(null);
 
@@ -37,7 +37,7 @@ export default function Builder() {
 
       if (!response.ok) throw new Error(data.message || 'Upload failed');
 
-      setResumeId(data.resume_id);
+      setRawText(data.raw_text);
     } catch (err) {
       setError(err.message);
       setFile(null);
@@ -47,7 +47,7 @@ export default function Builder() {
   };
 
   const handleAnalyze = async () => {
-    if (!resumeId) {
+    if (!rawText) {
       setError('Please upload a resume first.');
       return;
     }
@@ -65,7 +65,7 @@ export default function Builder() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          resume_id: resumeId,
+          raw_text: rawText,
           job_description: jobDescription,
         }),
       });
@@ -190,9 +190,9 @@ export default function Builder() {
         <div className="flex flex-col items-center gap-4">
           <button 
             onClick={handleAnalyze}
-            disabled={isAnalyzing || !resumeId || !jobDescription}
+            disabled={isAnalyzing || !rawText || !jobDescription}
             className={`flex items-center gap-2 font-bold py-4 px-10 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95 group ${
-              isAnalyzing || !resumeId || !jobDescription
+              isAnalyzing || !rawText || !jobDescription
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
                 : 'bg-[#FFD700] hover:bg-[#F0C800] text-gray-800 shadow-yellow-200/50 hover:-translate-y-1'
             }`}
