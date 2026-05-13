@@ -1,4 +1,4 @@
-# 🤖 AI-PRO — AI Resume Builder
+# 🤖 AI Resume Builder
 
 > An intelligent, full-stack resume builder that leverages AI to help users craft professional, job-winning resumes in minutes.
 
