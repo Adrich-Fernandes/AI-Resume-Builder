@@ -10,7 +10,7 @@ export default function Builder() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = '/api';
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
