@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CTASection() {
   return (
@@ -18,10 +19,10 @@ export default function CTASection() {
             <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl">
               Stop sending generic resumes. Tailor your resume to every job in minutes with AI.
             </p>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-10 py-4 rounded-xl font-bold text-lg shadow-lg shadow-yellow-400/20 transition-all flex items-center gap-3 active:scale-95">
+            <Link to="/builder" className="bg-yellow-400 hover:bg-yellow-500 text-black px-10 py-4 rounded-xl font-bold text-lg shadow-lg shadow-yellow-400/20 transition-all flex items-center gap-3 active:scale-95">
               Start Optimizing Now
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
